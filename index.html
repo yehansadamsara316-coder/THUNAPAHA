@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THUNAPAHA - CEYLON SPICES & BLENDS</title>
+    <link rel="icon" href="watermarked_img_15002344926285577220.jpg">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #121212;
+            color: #333;
+        }
+
+        /* Nav Bar */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: rgb(58, 57, 57);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-h1 {
+            font-size: 20px;
+            color: rgb(171, 169, 169);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffb703;
+        }
+
+        /* Hero / Header Section */
+        .hed {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('watermarked_img_15002344926285577220.jpg') center/cover;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 50px 0 50px;
+            z-index: 1;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .first-h1 {
+            font-size: 70px;
+            color: #ffb703;
+            margin-bottom: 20px;
+        }
+
+        .first-p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        .first-img {
+            width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        /* Body / About Section (Sticky Stop below Nav) */
+        .body {
+            position: sticky;
+            top: 70px;
+            z-index: 2;
+            background-color: #ffffff;
+            border-radius: 40px 40px 0 0;
+            padding: 60px 40px;
+            min-height: calc(100vh - 70px);
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+        }
+
+        .body-h1 {
+            text-align: center;
+            font-size: 32px;
+            border: 2px solid rgba(255, 200, 0, 0.551);
+            width: fit-content;
+            margin: 0 auto 10px auto;
+            padding: 5px 25px;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 1, 0.467);
+        }
+
+        .body-h2 {
+            text-align: center;
+            font-family: cursive;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .dis {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .kulubadu {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            margin: 30px auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Order Section (Overlay Scroll) */
+        .oder {
+            position: relative;
+            z-index: 3;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 80px 20px 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px 40px 0 0;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+        }
+
+        .oder h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #ffb703;
+            text-align: center;
+        }
+
+        .oder p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #ccc;
+            text-align: center;
+        }
+
+        .order-form {
+            background-color: #242424;
+            padding: 30px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            color: #ffb703;
+            font-weight: bold;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background-color: #1a1a1a;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: #25d366;
+        }
+
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebc57;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            position: relative;
+            z-index: 4;
+            background-color: #111111;
+            color: white;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-top: 2px solid #ffb703;
+        }
+
+        .contact-card {
+            background: #1f1f1f;
+            border-radius: 20px;
+            padding: 35px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid #333;
+        }
+
+        .contact-card h2 {
+            color: #ffb703;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 16px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: #2a2a2a;
+            padding: 12px 18px;
+            border-radius: 12px;
+        }
+
+        .info-item span {
+            font-size: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-btn {
+            color: white;
+            background-color: #2b2b2b;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #444;
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            background-color: #ffb703;
+            color: black;
+        }
+
+        footer {
+            position: relative;
+            z-index: 4;
+            background-color: #080808;
+            color: #777;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hed {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                padding: 100px 20px 20px 20px;
+            }
+            .first-img {
+                width: 100%;
+                max-width: 300px;
+                margin-top: 20px;
+            }
+            .first-h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav Bar -->
+    <div class="nav-bar">
+        <div class="logo-container">
+            <img src="watermarked_img_15002344926285577220.jpg" alt="Logo" class="nav-logo"> 
+            <h1 class="nav-h1">THUNAPAHA PRODUCTS</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#home">HOME</a>
+            <a href="#body">ABOUT</a>
+            <a href="#oder">ORDER</a>
+            <a href="#contact">CONTACTS</a>
+        </div>
+    </div>
+
+    <!-- Home / Hero Section -->
+    <div class="hed" id="home">
+        <div class="hero-text">
+            <h1 class="first-h1">THUNAPAHA</h1>
+            <p class="first-p">ඔබගේ දෛනික ආහාර වේලට නැවුම් බව, සුවඳ සහ උසස්ම ගුණාත්මකභාවය එක් කරන ශ්‍රී ලාංකේය විශිෂ්ටතම කුළුබඩු එකතුව.</p>
+        </div>
+        <img src="watermarked_img_15002344926285577220.jpg" alt="THUNAPAHA Spices" class="first-img">
+    </div>
+
+    <!-- About Section -->
+    <div class="body" id="body">
+        <h1 class="body-h1">Welcome to THUNAPAHA</h1>
+        <h2 class="body-h2">Enjoy our products!</h2>
+        <p class="dis"><strong>THUNAPAHA</strong> වෙත ඔබව සාදරයෙන් පිළිගනිමු! 🌿🌶️ අපගේ අරමුණ වන්නේ ඔබගේ ආහාරවල රසය, සුවඳ සහ ගුණාත්මකභාවය තවත් ඉහළ නැංවීමට උපකාරී වන උසස් තත්ත්වයේ කුළුබඩු වර්ග ඔබ වෙත ලබාදීමයි.</p>
+        <p class="dis">අප සතුව මිරිස් කුඩු, කහ කුඩු, ගම්මිරිස්, කුරුඳු, කරාබු නැටි, එනසාල්, සාදික්කා, වසාවාසි, කොත්තමල්ලි, සූදුරු, මාදුරු, මහදුරු, අබ, උළුහාල්, කරපිංචා, රම්පේ, ඉඟුරු, සුදුළූණු වැනි කුළුබඩු පවතී.</p>
+        <img src="watermarked_img_15002344926285577220.jpg" alt="THUNAPAHA Collection" class="kulubadu">
+    </div>
+
+    <!-- Order Section -->
+    <div class="oder" id="oder">
+        <h2>Place Your Order via WhatsApp</h2>
+        <p>පහත විස්තර ලබා දී WhatsApp මගින් ඍජුවම ඇණවුම් කරන්න.</p>
+
+        <form class="order-form" onsubmit="sendWhatsAppOrder(event)">
+            <div class="form-group">
+                <label for="name">ඔබගේ නම (Name):</label>
+                <input type="text" id="name" placeholder="නම ඇතුළත් කරන්න" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">දුරකථන අංකය (Phone Number):</label>
+                <input type="tel" id="phone" placeholder="07XXXXXXXX" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product">අවශ්‍ය කුළුබඩු වර්ගය (Product):</label>
+                <select id="product" required>
+                    <option value="">තෝරන්න...</option>
+                    <option value="බැදපු තුනපහ (Roasted Curry Powder)">බැදපු තුනපහ</option>
+                    <option value="අමු තුනපහ (Unroasted Curry Powder)">අමු තුනපහ</option>
+                    <option value="මිරිස් කුඩු (Chilli Powder)">මිරිස් කුඩු</option>
+                    <option value="කෑලි මිරිස් (Chilli Pieces)">කෑලි මිරිස්</option>
+                    <option value="කහ කුඩු (Turmeric Powder)">කහ කුඩු</option>
+                    <option value="ගම්මිරිස් (Black Pepper)">ගම්මිරිස්</option>
+                    <option value="විශේෂ මිශ්‍ර ඇණවුමක් (Mixed Pack)">විශේෂ මිශ්‍ර ඇණවුමක්</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">ප්‍රමාණය (Quantity):</label>
+                <input type="text" id="quantity" placeholder="උදා: 250g / 500g / 1kg" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">ලිපිනය (Delivery Address):</label>
+                <textarea id="address" rows="3" placeholder="ඇණවුම එවිය යුතු ලිපිනය..." required></textarea>
+            </div>
+
+            <button type="submit" class="whatsapp-btn">
+                📲 Order via WhatsApp
+            </button>
+        </form>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <div class="contact-card">
+            <h2>Contact Us</h2>
+            
+            <div class="contact-info">
+                <div class="info-item">
+                    <span>📞</span>
+                    <div>
+                        <strong>Phone / Hot Line:</strong>
+                        <p>+94 711816576</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span>💬</span>
+                    <div>
+                        <strong>WhatsApp Order:</strong>
+                        <p>+94 711816576</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span>✉️</span>
+                    <div>
+                        <strong>Email Address:</strong>
+                        <p>info@thunapaha.lk</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span>📍</span>
+                    <div>
+                        <strong>Location / Address:</strong>
+                        <p>25/73 A BATUGEDARA RATHNAPURA</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-btn">Facebook</a>
+                <a href="#" class="social-btn">Instagram</a>
+                <a href="#" class="social-btn">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 THUNAPAHA PRODUCTS. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function sendWhatsAppOrder(event) {
+            event.preventDefault();
+
+            // Apnar WhatsApp number bosaben (ex: 94771234567)
+            const phoneNumber = "94711816576"; 
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const product = document.getElementById('product').value;
+            const quantity = document.getElementById('quantity').value;
+            const address = document.getElementById('address').value;
+
+            const message = `🌿 *THUNAPAHA NEW ORDER* 🌿%0A%0A` +
+                            `👤 *Name:* ${encodeURIComponent(name)}%0A` +
+                            `📞 *Phone:* ${encodeURIComponent(phone)}%0A` +
+                            `🌶️ *Product:* ${encodeURIComponent(product)}%0A` +
+                            `⚖️ *Quantity:* ${encodeURIComponent(quantity)}%0A` +
+                            `📍 *Address:* ${encodeURIComponent(address)}%0A%0A` +
+                            `කරුණාකර ඇණවුම තහවුරු කරන්න.`;
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
